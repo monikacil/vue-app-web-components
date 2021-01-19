@@ -14,7 +14,6 @@
 </template>
 
 <script>
-
 import 'custom-modal-web-component/dist/bundle.min.js'
 
 export default {
@@ -32,10 +31,9 @@ export default {
     },
     closeModal: function() {
       this.modalIsOpen = false
-     
     },
     sendData: function() {
-      console.log('Event form Save button')
+      alert('Event form Save button')
     }
   }
 }
