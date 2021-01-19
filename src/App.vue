@@ -4,8 +4,8 @@
     <custom-modal title="Modal Web Components" 
                   button="Save"
                   :open="modalIsOpen"
-                  @close="closeModal()" 
-                  @btn-click="sendData()">
+                  @close="closeModal" 
+                  @btn-click="handleClick">
       <div slot="content">
         <p>{{ message }}</p>
       </div>
@@ -32,8 +32,8 @@ export default {
     closeModal: function() {
       this.modalIsOpen = false
     },
-    sendData: function() {
-      alert('Event form Save button')
+    handleClick: function() {
+      alert('Zdarzenie po kliknięciu przycisku "Save"')
     }
   }
 }
