@@ -1,28 +1,52 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="openModal()">Open modal</button>
+    <custom-modal title="Modal Web Components" 
+                  button="Save"
+                  :open="modalIsOpen"
+                  @close="closeModal()" 
+                  @btn-click="sendData()">
+      <div slot="content">
+        <p>{{ message }}</p>
+      </div>
+    </custom-modal>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import 'custom-modal-web-component/dist/bundle.min.js'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      modalIsOpen: false,
+      message: 'Przykładowy komponent okna dialogowego w aplikacji Vue.'
+    }
+  },
+
+  methods: {
+    openModal: function() {
+      this.modalIsOpen = true
+    },
+    closeModal: function() {
+      this.modalIsOpen = false
+     
+    },
+    sendData: function() {
+      console.log('Event form Save button')
+    }
   }
 }
 </script>
 
 <style>
-#app {
+* {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 0;
+  padding: 0;
 }
 </style>
